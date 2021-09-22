@@ -1,9 +1,14 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
+
+if ! [ -e "$HOME/.env" ]; then
+    echo "$HOME/.env not setup, please create it"
+    exit 1
+fi
 
 # shellcheck disable=SC1091
-source "$HOME/.env"
+. "$HOME/.env"
 
-if [[ -z "$(which xprintidle)" ]]; then
+if [ -z "$(which xprintidle)" ]; then
   echo "xprintidle not found, please install it!"
   exit 1
 fi
@@ -15,7 +20,7 @@ LAST_INPUT_MS="$(xprintidle)"
 
 # Make sure the device was used in the last 2 minutes
 # and make sure screen is unlocked
-if [[ "$LAST_INPUT_MS" -lt 120000 && -z "$SCREEN_LOCKED" ]]; then
+if [ "$LAST_INPUT_MS" -lt 120000 ] && [ -z "$SCREEN_LOCKED" ]; then
   {
     echo "$(date +"%Y/%m/%d %T") - Running Heartbeat"
     curl -s -X POST -H "Auth: $HEARTBEAT_AUTH" "$HEARTBEAT_HOSTNAME"
