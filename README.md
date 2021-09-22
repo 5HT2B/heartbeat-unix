@@ -1,15 +1,15 @@
-# heartbeat-linux
+# heartbeat-unix
 
-This is the Linux client for Heartbeat. It will ping the central server every minute, as long as an input device (keyboard or mouse) has been used in the last two minutes, and your device is unlocked.
+This is the Linux / macOS / Unix client for Heartbeat. It will ping the central server every minute, as long as an input device (keyboard or mouse) has been used in the last two minutes, and your device is unlocked.
 
 Do note, that checking for a screen lock only works on KDE's `kscreenlocker`. If you are on a different DE / screenlocker, feel free to make a pull request adding support for that DE / screenlocker.
 
 ## Usage
 
-Download [`ping.sh`](https://github.com/technically-functional/heartbeat-linux/blob/master/ping.sh) anywhere you'd like, preferably like so
+Download [`ping.sh`](https://github.com/technically-functional/heartbeat-unix/blob/master/ping.sh) anywhere you'd like, preferably like so
 ```bash
 mkdir -p ~/.local/bin/
-wget -O ~/.local/bin/ping.sh https://github.com/technically-functional/heartbeat-linux/raw/master/ping.sh
+wget -O ~/.local/bin/ping.sh https://github.com/technically-functional/heartbeat-unix/raw/master/ping.sh
 chmod +X ~/.local/bin/ping.sh
 ```
 
