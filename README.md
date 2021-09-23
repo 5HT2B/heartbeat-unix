@@ -11,7 +11,7 @@ Do note, that checking for a screen lock only works on KDE's `kscreenlocker`. If
 Download [`ping.sh`](https://github.com/technically-functional/heartbeat-unix/blob/master/ping.sh) anywhere you'd like, preferably like so
 ```bash
 mkdir -p ~/.local/bin/
-wget -O ~/.local/bin/ping.sh https://github.com/technically-functional/heartbeat-unix/raw/master/ping.sh
+curl https://github.com/technically-functional/heartbeat-unix/raw/master/ping.sh -o ~/.local/bin/ping.sh
 chmod +X ~/.local/bin/ping.sh
 ```
 
@@ -26,14 +26,14 @@ export HEARTBEAT_HOSTNAME="https://your.heartbeat.domain"
 export HEARTBEAT_LOG_FILE="$HOME/.cache/heartbeat.log"
 ```
 
-3. Download and install systemd services
+3. Download and install the systemd service
 
 If you are not using systemd on your system, please use the equivalent service for your system. Do **not** use a cronjob, as that does not work with `xprintidle` (required by the script).
 
 ```bash
 mkdir -p ~/.config/systemd/user/
-wget -O ~/.config/systemd/user/heartbeat-client.service https://github.com/technically-functional/heartbeat-unix/raw/master/heartbeat-client.service
-wget -O ~/.config/systemd/user/heartbeat-client.timer https://github.com/technically-functional/heartbeat-unix/raw/master/heartbeat-client.timer
+curl https://github.com/technically-functional/heartbeat-unix/raw/master/heartbeat-client.service -o ~/.config/systemd/user/heartbeat-client.service
+curl https://github.com/technically-functional/heartbeat-unix/raw/master/heartbeat-client.timer -o ~/.config/systemd/user/heartbeat-client.timer
 # Enable the service and timer for the current user
 systemctl --user enable --now heartbeat-client.timer
 ```
