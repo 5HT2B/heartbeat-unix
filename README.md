@@ -6,6 +6,8 @@ Do note, that checking for a screen lock only works on KDE's `kscreenlocker`. If
 
 ## Usage
 
+1. Download the ping script (POSIX compatible)
+
 Download [`ping.sh`](https://github.com/technically-functional/heartbeat-unix/blob/master/ping.sh) anywhere you'd like, preferably like so
 ```bash
 mkdir -p ~/.local/bin/
@@ -13,7 +15,9 @@ wget -O ~/.local/bin/ping.sh https://github.com/technically-functional/heartbeat
 chmod +X ~/.local/bin/ping.sh
 ```
 
-Feel free to modify this however you'd like. 
+Feel free to modify this however you'd like. Do note, **you *will* have to update the systemd service files** (or whatever you're using, to point to the different location).
+
+2. Setup config
 
 Next, inside `~/.env`, add the following
 ```bash
@@ -22,10 +26,28 @@ export HEARTBEAT_HOSTNAME="https://your.heartbeat.domain"
 export HEARTBEAT_LOG_FILE="$HOME/.cache/heartbeat.log"
 ```
 
-Next you want to add a cronjob to run this script every minute (or whenever you choose).
-```
-# run the 'crontab -e' command to open the editor, and add
-* * * * * /home/your-username/.local/bin/ping.sh
+3. Download and install systemd services
+
+If you are not using systemd on your system, please use the equivalent service for your system. Do **not** use a cronjob, as that does not work with `xprintidle` (required by the script).
+
+```bash
+mkdir -p ~/.config/systemd/user/
+wget -O ~/.config/systemd/user/ https://github.com/technically-functional/heartbeat-unix/raw/master/heartbeat-client.service
+wget -O ~/.config/systemd/user/ https://github.com/technically-functional/heartbeat-unix/raw/master/heartbeat-client.timer
+# Enable the service and timer for the current user
+systemctl --user enable --now heartbeat-client.timer
 ```
 
-And then you're finished. Feel free to tweak it or move the files around, just make sure you update the file the cronjob is pointing to.
+4. Ensure that the client is setup correctly
+
+To be sure your script is working and got a response from the server, run the following commands (this makes debugging easier + faster, but you could also just watch your heartbeat server's website for an update).
+
+```bash
+. ~/.env
+cd ~/.local/bin/
+./ping.sh
+cat "$HEARTBEAT_LOG_FILE"
+# The output should look somewhat like the following
+# 2021/09/23 17:28:07 - Running Heartbeat
+# 1632432488
+```

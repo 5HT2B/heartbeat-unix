@@ -1,0 +1,10 @@
+[Unit]
+Description=Runs the heartbeat ping script
+Requires=heartbeat-client.service
+
+[Timer]
+Unit=heartbeat-client.service
+OnCalendar=*-*-* *:*:00
+
+[Install]
+WantedBy=timers.target 

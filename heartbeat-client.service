@@ -1,0 +1,10 @@
+[Unit]
+Description=Runs the heartbeat ping script
+Wants=heartbeat-client.timer
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/ping.sh
+
+[Install]
+WantedBy=multi-user.target 
