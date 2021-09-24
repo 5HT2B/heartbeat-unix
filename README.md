@@ -11,7 +11,7 @@ Do note, that checking for a screen lock only works on KDE's `kscreenlocker`. If
 Download [`ping.sh`](https://github.com/technically-functional/heartbeat-unix/blob/master/ping.sh) anywhere you'd like, preferably like so
 ```bash
 mkdir -p ~/.local/bin/
-curl https://github.com/technically-functional/heartbeat-unix/raw/master/ping.sh -o ~/.local/bin/ping.sh
+curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/ping.sh -o ~/.local/bin/ping.sh
 chmod +X ~/.local/bin/ping.sh
 ```
 
@@ -32,8 +32,8 @@ If you are not using systemd on your system, please use the equivalent service f
 
 ```bash
 mkdir -p ~/.config/systemd/user/
-curl https://github.com/technically-functional/heartbeat-unix/raw/master/heartbeat-client.service -o ~/.config/systemd/user/heartbeat-client.service
-curl https://github.com/technically-functional/heartbeat-unix/raw/master/heartbeat-client.timer -o ~/.config/systemd/user/heartbeat-client.timer
+curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/heartbeat-client.service -o ~/.config/systemd/user/heartbeat-client.service
+curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/heartbeat-client.timer -o ~/.config/systemd/user/heartbeat-client.timer
 # Enable the service and timer for the current user
 systemctl --user enable --now heartbeat-client.timer
 ```
