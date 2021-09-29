@@ -24,6 +24,7 @@ Next, inside `~/.env`, add the following
 export HEARTBEAT_AUTH='your heartbeat server token'
 export HEARTBEAT_HOSTNAME="https://your.heartbeat.domain"
 export HEARTBEAT_LOG_FILE="$HOME/.cache/heartbeat.log"
+export HEARTBEAT_DEVICE_NAME="laptop"
 ```
 
 3. Download and install the systemd service
