@@ -12,7 +12,7 @@ Download [`ping.sh`](https://github.com/technically-functional/heartbeat-unix/bl
 ```bash
 mkdir -p ~/.local/bin/
 curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/ping.sh -o ~/.local/bin/ping.sh
-chmod +X ~/.local/bin/ping.sh
+chmod +x ~/.local/bin/ping.sh
 ```
 
 Feel free to modify this however you'd like. Do note, **you *will* have to update the systemd service files** if you download it to a different location.
