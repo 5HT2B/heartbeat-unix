@@ -52,3 +52,11 @@ cat "$HEARTBEAT_LOG_FILE"
 # 2021/09/23 17:28:07 - Running Heartbeat
 # 1632432488
 ```
+
+### For macOS Users
+Since macOS do not have commands like `xprintidle` and `kscreenlocker`, I simply created a shell script and a plist that will ping the heartbeat server every minute.
+
+1. Move `heatbeat-client-macOS.sh` to a place where you like. I put it in `$HOME/.local/bin`.
+2. Adjust `in.l1v.heartbeat.plist`.
+3. Copy `in.l1v.heatbeat.plist` to `~/Library/LaunchAgents`.
+4. Run `launchctl load ~/Library/LaunchAgents/in.l1v.heartbeat.plist`.
