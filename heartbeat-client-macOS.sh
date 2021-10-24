@@ -12,6 +12,11 @@ if [[ -z "$HEARTBEAT_AUTH" ]] || [[ -z "$HEARTBEAT_DEVICE_NAME" ]] || [[ -z "$HE
     echo "HEARTBEAT_HOSTNAME: $HEARTBEAT_HOSTNAME"
     exit 1
 else
+    # Make log dir if it doesn't exist
+    if ! [[ -d "$HEARTBEAT_LOG_DIR" ]]; then
+        mkdir -p "$HEARTBEAT_LOG_DIR" || exit 1
+    fi
+
     # Check when the last HID event was sent
     LAST_INPUT_MS="$(ioreg -c IOHIDSystem | awk '/HIDIdleTime/{print $NF}')"
 
@@ -21,6 +26,6 @@ else
             echo "$(date +"%Y/%m/%d %T") - Running Heartbeat"
             curl -s -X POST -H "Auth: $HEARTBEAT_AUTH" -H "Device: $HEARTBEAT_DEVICE_NAME" "$HEARTBEAT_HOSTNAME/api/beat"
             echo ""
-        } >> "$HEARTBEAT_LOG_FILE" 2>&1
+        } >> "$HEARTBEAT_LOG_DIR/heartbeat.log" 2>&1
     fi
 fi

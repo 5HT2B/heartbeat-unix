@@ -73,7 +73,7 @@ Next, inside `~/.heartbeat`, add the following
 ```bash
 export HEARTBEAT_AUTH='your heartbeat server token'
 export HEARTBEAT_HOSTNAME="https://your.heartbeat.domain"
-export HEARTBEAT_LOG_FILE="$HOME/Library/Cache/heartbeat.log"
+export HEARTBEAT_LOG_DIR="$HOME/Library/Logs/functional.technically.heartbeat"
 export HEARTBEAT_DEVICE_NAME="laptop-macOS"
 ```
 
@@ -87,7 +87,7 @@ To be sure your script is working and got a response from the server, run the fo
 . ~/.heartbeat
 cd ~/.local/bin/
 ./heartbeat-client-macOS.sh
-cat "$HEARTBEAT_LOG_FILE"
+cat "$HEARTBEAT_LOG_DIR/heartbeat.log"
 # The output should look somewhat like the following
 # 2021/09/23 17:28:07 - Running Heartbeat
 # 1632432488
