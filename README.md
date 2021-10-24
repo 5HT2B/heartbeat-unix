@@ -57,9 +57,25 @@ cat "$HEARTBEAT_LOG_FILE"
 
 Since `xprintidle` does not have support for macOS, there is an alternative script available.
 
-1. Move `heartbeat-client-macOS.sh` to a wherever you'd like, preferably `$HOME/.local/bin`.
+1. Download the ping script (compatible with bash)
+Download [`heartbeat-client-macOS.sh`](https://github.com/technically-functional/heartbeat-unix/blob/master/heartbeat-client-macOS.sh) anywhere you'd like, preferably like so
+```bash
+mkdir -p ~/.local/bin/
+curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/heartbeat-client-macOS.sh -o ~/.local/bin/heartbeat-client-macOS.sh
+chmod +x ~/.local/bin/heartbeat-client-macOS.sh
+```
 
-If you are storing it somewhere else, make sure to edit the path in the plist accordingly.
+Feel free to modify this however you'd like. Do note, **you *will* have to update the plist file** if you download it to a different location.
 
-2. Copy `in.l1v.heatbeat.plist` to `~/Library/LaunchAgents`.
-3. Run `launchctl load ~/Library/LaunchAgents/in.l1v.heartbeat.plist`.
+2. Setup config
+
+Next, inside `~/.heartbeat`, add the following
+```bash
+export HEARTBEAT_AUTH='your heartbeat server token'
+export HEARTBEAT_HOSTNAME="https://your.heartbeat.domain"
+export HEARTBEAT_LOG_FILE="$HOME/Library/Cache/heartbeat.log"
+export HEARTBEAT_DEVICE_NAME="laptop"
+```
+
+3. Copy `in.l1v.heatbeat.plist` to `~/Library/LaunchAgents`.
+4. Run `launchctl load ~/Library/LaunchAgents/in.l1v.heartbeat.plist`.
