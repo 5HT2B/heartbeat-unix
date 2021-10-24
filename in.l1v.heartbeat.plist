@@ -6,7 +6,9 @@
     <string>in.l1v.heartbeat.heartbeat-client</string>
     <key>ProgramArguments</key>
     <array>
-	    <string>/Users/sourtaste000/.local/bin/heartbeat-client-macOS.sh</string>
+        <string>/bin/sh</string>
+        <string>-c</string>
+        <string>exec $HOME/.local/bin/heartbeat-client-macOS.sh</string>
     </array>
     <key>StartInterval</key>
     <integer>60</integer>
