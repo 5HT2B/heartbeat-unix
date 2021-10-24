@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# Update env variables if stored in file
+LAST_INPUT_MS=$(ioreg -c IOHIDSystem | awk '/HIDIdleTime/{print $NF}')
+
 if [[ -f "$HOME/.heartbeat" ]]; then
     chmod +x "$HOME/.heartbeat"
     . "$HOME/.heartbeat"
@@ -13,9 +14,9 @@ if [ -z "$HEARTBEAT_AUTH" ] || [ -z "$HEARTBEAT_DEVICE_NAME" ] || [ -z "$HEARTBE
   echo "HEARTBEAT_HOSTNAME: $HEARTBEAT_HOSTNAME"
   exit
 else
-  echo "$(date +"%Y/%m/%d %T") - Running Heartbeat"
-  curl -s -X POST -H "Auth: $HEARTBEAT_AUTH" -H "Device: $HEARTBEAT_DEVICE_NAME" "$HEARTBEAT_HOSTNAME/api/beat"
+  # Launchd will not work if the system is locked/in sleep, so do not have to worry about the lock
+  if [[ $LAST_INPUT_MS -lt 120000 ]]; then
+    echo "$(date +"%Y/%m/%d %T") - Running Heartbeat"
+    curl -s -X POST -H "Auth: $HEARTBEAT_AUTH" -H "Device: $HEARTBEAT_DEVICE_NAME" "$HEARTBEAT_HOSTNAME/api/beat"
+  fi
 fi
-
-
-
