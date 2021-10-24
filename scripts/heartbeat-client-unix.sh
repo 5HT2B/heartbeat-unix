@@ -8,12 +8,12 @@ fi
 # shellcheck disable=SC1091
 . "$HOME/.env"
 
-if [ -z "$HEARTBEAT_AUTH" ] || [ -z "$HEARTBEAT_DEVICE_NAME" ] || [ -z "$HEARTBEAT_HOSTNAME" ]; then
+if [ -z "$HEARTBEAT_AUTH" ] || [ -z "$HEARTBEAT_LOG_DIR" ] || [ -z "$HEARTBEAT_HOSTNAME" ] || [ -z "$HEARTBEAT_DEVICE_NAME" ]; then
     echo "Environment variables not setup correctly!"
     echo "HEARTBEAT_AUTH: $HEARTBEAT_AUTH"
     echo "HEARTBEAT_LOG_DIR: $HEARTBEAT_LOG_DIR"
     echo "HEARTBEAT_HOSTNAME: $HEARTBEAT_HOSTNAME"
-    echo "HEARTBEAT_DEVICE_NAME: $HEARTBEAT_HOSTNAME"
+    echo "HEARTBEAT_DEVICE_NAME: $HEARTBEAT_DEVICE_NAME"
     exit 1
 else
     if [ -z "$(which xprintidle)" ]; then
