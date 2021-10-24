@@ -24,7 +24,7 @@ Next, inside `~/.env`, add the following
 export HEARTBEAT_AUTH='your heartbeat server token'
 export HEARTBEAT_HOSTNAME="https://your.heartbeat.domain"
 export HEARTBEAT_LOG_FILE="$HOME/.cache/heartbeat.log"
-export HEARTBEAT_DEVICE_NAME="laptop"
+export HEARTBEAT_DEVICE_NAME="Linux Device"
 ```
 
 3. Download and install the systemd service
@@ -74,7 +74,7 @@ Next, inside `~/.heartbeat`, add the following
 export HEARTBEAT_AUTH='your heartbeat server token'
 export HEARTBEAT_HOSTNAME="https://your.heartbeat.domain"
 export HEARTBEAT_LOG_DIR="$HOME/Library/Logs/functional.technically.heartbeat"
-export HEARTBEAT_DEVICE_NAME="laptop-macOS"
+export HEARTBEAT_DEVICE_NAME="MacOS Device"
 ```
 
 3. Copy `functional.technically.heartbeat.plist` to `~/Library/LaunchAgents`.
