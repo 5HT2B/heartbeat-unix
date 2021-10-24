@@ -11,8 +11,9 @@ fi
 if [ -z "$HEARTBEAT_AUTH" ] || [ -z "$HEARTBEAT_DEVICE_NAME" ] || [ -z "$HEARTBEAT_HOSTNAME" ]; then
     echo "Environment variables not setup correctly!"
     echo "HEARTBEAT_AUTH: $HEARTBEAT_AUTH"
-    echo "HEARTBEAT_DEVICE_NAME: $HEARTBEAT_HOSTNAME"
+    echo "HEARTBEAT_LOG_DIR: $HEARTBEAT_LOG_DIR"
     echo "HEARTBEAT_HOSTNAME: $HEARTBEAT_HOSTNAME"
+    echo "HEARTBEAT_DEVICE_NAME: $HEARTBEAT_HOSTNAME"
     exit 1
 else
     if [ -z "$(which xprintidle)" ]; then
