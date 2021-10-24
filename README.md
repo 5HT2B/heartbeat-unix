@@ -8,10 +8,10 @@ Do note, that checking for a screen lock only works on KDE's `kscreenlocker`. If
 
 1. Download the ping script (POSIX compatible)
 
-Download [`ping.sh`](https://github.com/technically-functional/heartbeat-unix/blob/master/ping.sh) anywhere you'd like, preferably like so
+Download [`ping.sh`](https://github.com/technically-functional/heartbeat-unix/blob/master/scripts/ping.sh) anywhere you'd like, preferably like so
 ```bash
 mkdir -p ~/.local/bin/
-curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/ping.sh -o ~/.local/bin/ping.sh
+curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/scripts/ping.sh -o ~/.local/bin/ping.sh
 chmod +x ~/.local/bin/ping.sh
 ```
 
@@ -33,8 +33,8 @@ If you are not using systemd on your system, please use the equivalent service f
 
 ```bash
 mkdir -p ~/.config/systemd/user/
-curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/heartbeat-client.service -o ~/.config/systemd/user/heartbeat-client.service
-curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/heartbeat-client.timer -o ~/.config/systemd/user/heartbeat-client.timer
+curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/scripts/heartbeat-client.service -o ~/.config/systemd/user/heartbeat-client.service
+curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/scripts/heartbeat-client.timer -o ~/.config/systemd/user/heartbeat-client.timer
 # Enable the service and timer for the current user
 systemctl --user enable --now heartbeat-client.timer
 ```
@@ -58,10 +58,10 @@ cat "$HEARTBEAT_LOG_DIR/heartbeat.log"
 Since `xprintidle` does not have support for macOS, there is an alternative script available.
 
 1. Download the ping script (compatible with bash)
-Download [`heartbeat-client-macOS.sh`](https://github.com/technically-functional/heartbeat-unix/blob/master/heartbeat-client-macOS.sh) anywhere you'd like, preferably like so
+Download [`heartbeat-client-macOS.sh`](https://github.com/technically-functional/heartbeat-unix/blob/master/scripts/heartbeat-client-macOS.sh) anywhere you'd like, preferably like so
 ```bash
 mkdir -p ~/.local/bin/
-curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/heartbeat-client-macOS.sh -o ~/.local/bin/heartbeat-client-macOS.sh
+curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/scripts/heartbeat-client-macOS.sh -o ~/.local/bin/heartbeat-client-macOS.sh
 chmod +x ~/.local/bin/heartbeat-client-macOS.sh
 ```
 
