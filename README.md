@@ -4,7 +4,7 @@ This is the Linux / macOS / Unix client for Heartbeat. It will ping the central 
 
 Do note, that checking for a screen lock only works on KDE's `kscreenlocker`. If you are on a different DE / screenlocker, feel free to make a pull request adding support for that DE / screenlocker.
 
-## Usage
+## Usage (for most \*NIX-like systems)
 
 1. Download the ping script (POSIX compatible)
 
@@ -53,10 +53,13 @@ cat "$HEARTBEAT_LOG_FILE"
 # 1632432488
 ```
 
-### For macOS Users
-Since macOS do not have commands like `xprintidle` and `kscreenlocker`, I simply created a shell script and a plist that will ping the heartbeat server every minute.
+## Usage (for macOS)
 
-1. Move `heatbeat-client-macOS.sh` to a place where you like. I put it in `$HOME/.local/bin`.
-2. Adjust `in.l1v.heartbeat.plist`.
-3. Copy `in.l1v.heatbeat.plist` to `~/Library/LaunchAgents`.
-4. Run `launchctl load ~/Library/LaunchAgents/in.l1v.heartbeat.plist`.
+Since `xprintidle` does not have support for macOS, there is an alternative script available.
+
+1. Move `heartbeat-client-macOS.sh` to a wherever you'd like, preferably `$HOME/.local/bin`.
+
+If you are storing it somewhere else, make sure to edit the path in the plist accordingly.
+
+2. Copy `in.l1v.heatbeat.plist` to `~/Library/LaunchAgents`.
+3. Run `launchctl load ~/Library/LaunchAgents/in.l1v.heartbeat.plist`.
