@@ -77,7 +77,7 @@ export HEARTBEAT_LOG_DIR="$HOME/Library/Logs/functional.technically.heartbeat"
 export HEARTBEAT_DEVICE_NAME="laptop-macOS"
 ```
 
-3. Copy `functional.technically.heatbeat.plist` to `~/Library/LaunchAgents`.
+3. Copy `functional.technically.heartbeat.plist` to `~/Library/LaunchAgents`.
 4. Run `launchctl load ~/Library/LaunchAgents/functional.technically.heartbeat.plist`.
 5. Ensure that the client is setup correctly
 
