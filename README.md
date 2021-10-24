@@ -74,7 +74,7 @@ Next, inside `~/.heartbeat`, add the following
 export HEARTBEAT_AUTH='your heartbeat server token'
 export HEARTBEAT_HOSTNAME="https://your.heartbeat.domain"
 export HEARTBEAT_LOG_FILE="$HOME/Library/Cache/heartbeat.log"
-export HEARTBEAT_DEVICE_NAME="laptop"
+export HEARTBEAT_DEVICE_NAME="laptop-macOS"
 ```
 
 3. Copy `in.l1v.heatbeat.plist` to `~/Library/LaunchAgents`.
