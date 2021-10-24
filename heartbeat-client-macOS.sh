@@ -2,12 +2,12 @@
 
 LAST_INPUT_MS=$(ioreg -c IOHIDSystem | awk '/HIDIdleTime/{print $NF}')
 
-if [[ -f "$HOME/.heartbeat" ]]; then
-    chmod +x "$HOME/.heartbeat"
-    . "$HOME/.heartbeat"
+if ! [ -e "$HOME/.heartbeat" ]; then
+    echo "$HOME/.heartbeat not setup, please create it"
+    exit 1
 fi
 
-if [ -z "$HEARTBEAT_AUTH" ] || [ -z "$HEARTBEAT_DEVICE_NAME" ] || [ -z "$HEARTBEAT_HOSTNAME" ]; then
+if [[ -z "$HEARTBEAT_AUTH" ]] || [[ -z "$HEARTBEAT_DEVICE_NAME" ]] || [[ -z "$HEARTBEAT_HOSTNAME" ]]; then
   echo "Environment variables not setup correctly!"
   echo "HEARTBEAT_AUTH: $HEARTBEAT_AUTH"
   echo "HEARTBEAT_DEVICE_NAME:   $HEARTBEAT_HOSTNAME"
