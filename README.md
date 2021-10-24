@@ -79,3 +79,16 @@ export HEARTBEAT_DEVICE_NAME="laptop-macOS"
 
 3. Copy `in.l1v.heatbeat.plist` to `~/Library/LaunchAgents`.
 4. Run `launchctl load ~/Library/LaunchAgents/in.l1v.heartbeat.plist`.
+5. Ensure that the client is setup correctly
+
+To be sure your script is working and got a response from the server, run the following commands (this makes debugging easier + faster, but you could also just watch your heartbeat server's website for an update).
+
+```bash
+. ~/.heartbeat
+cd ~/.local/bin/
+./heartbeat-client-macOS.sh
+cat "$HEARTBEAT_LOG_FILE"
+# The output should look somewhat like the following
+# 2021/09/23 17:28:07 - Running Heartbeat
+# 1632432488
+```
