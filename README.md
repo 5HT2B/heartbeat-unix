@@ -4,6 +4,10 @@ This is the Linux / macOS / Unix client for Heartbeat. It will ping the central 
 
 Do note, that checking for a screen lock only works on KDE's `kscreenlocker`. If you are on a different DE / screenlocker, feel free to make a pull request adding support for that DE / screenlocker.
 
+Jump to
+- [Usage (for most \*NIX-like systems)](#usage-for-most-nix-like-systems)
+- [Usage (for macOS)](#usage-for-macos)
+
 ## Usage (for most \*NIX-like systems)
 
 1. Download the ping script (POSIX compatible)
