@@ -5,6 +5,9 @@ if ! [ -e "$HOME/.heartbeat" ]; then
     exit 1
 fi
 
+# shellcheck disable=SC1091
+. "$HOME/.heartbeat"
+
 if [[ -z "$HEARTBEAT_AUTH" ]] || [[ -z "$HEARTBEAT_DEVICE_NAME" ]] || [[ -z "$HEARTBEAT_HOSTNAME" ]]; then
     echo "Environment variables not setup correctly!"
     echo "HEARTBEAT_AUTH: $HEARTBEAT_AUTH"
