@@ -8,11 +8,11 @@ Do note, that checking for a screen lock only works on KDE's `kscreenlocker`. If
 
 1. Download the ping script (POSIX compatible)
 
-Download [`ping.sh`](https://github.com/technically-functional/heartbeat-unix/blob/master/scripts/ping.sh) anywhere you'd like, preferably like so
+Download [`heartbeat-client-unix.sh`](https://github.com/technically-functional/heartbeat-unix/blob/master/scripts/heartbeat-client-unix.sh) anywhere you'd like, preferably like so
 ```bash
 mkdir -p ~/.local/bin/
-curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/scripts/ping.sh -o ~/.local/bin/ping.sh
-chmod +x ~/.local/bin/ping.sh
+curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/scripts/heartbeat-client-unix.sh -o ~/.local/bin/heartbeat-client-unix.sh
+chmod +x ~/.local/bin/heartbeat-client-unix.sh
 ```
 
 Feel free to modify this however you'd like. Do note, **you *will* have to update the systemd service files** if you download it to a different location.
@@ -46,7 +46,7 @@ To be sure your script is working and got a response from the server, run the fo
 ```bash
 . ~/.env
 cd ~/.local/bin/
-./ping.sh
+./heartbeat-client-unix.sh
 cat "$HEARTBEAT_LOG_DIR/heartbeat.log"
 # The output should look somewhat like the following
 # 2021/09/23 17:28:07 - Running Heartbeat
