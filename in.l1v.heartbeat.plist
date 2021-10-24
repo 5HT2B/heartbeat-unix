@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>in.l1v.heartbeat.heartbeat-client</string>
+    <string>functional.technically.heartbeat.heartbeat-client</string>
     <key>ProgramArguments</key>
     <array>
         <string>/bin/sh</string>
