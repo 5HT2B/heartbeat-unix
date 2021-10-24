@@ -17,7 +17,10 @@ else
 
     # Launchd will not execute the task if the system is locked or sleeping, so no need to worry about the screen lock state
     if [[ $LAST_INPUT_MS -lt 120000 ]]; then
-        echo "$(date +"%Y/%m/%d %T") - Running Heartbeat"
-        curl -s -X POST -H "Auth: $HEARTBEAT_AUTH" -H "Device: $HEARTBEAT_DEVICE_NAME" "$HEARTBEAT_HOSTNAME/api/beat"
+        {
+            echo "$(date +"%Y/%m/%d %T") - Running Heartbeat"
+            curl -s -X POST -H "Auth: $HEARTBEAT_AUTH" -H "Device: $HEARTBEAT_DEVICE_NAME" "$HEARTBEAT_HOSTNAME/api/beat"
+            echo ""
+        } >> "$HEARTBEAT_LOG_FILE" 2>&1
     fi
 fi
