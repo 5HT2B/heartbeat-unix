@@ -21,6 +21,7 @@ else
         mkdir -p "$HEARTBEAT_LOG_DIR" || exit 1
     fi
 
+    # Check when the last HID event was sent
     LAST_INPUT_SEC="$(($(ioreg -c IOHIDSystem | sed -e '/HIDIdleTime/ !{ d' -e 't' -e '}' -e 's/.* = //g' -e 'q') / 1000000000))"
 
     # Launchd will not execute the task if the system is locked or sleeping, so no need to worry about the screen lock state
