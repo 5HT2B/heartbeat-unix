@@ -77,8 +77,8 @@ export HEARTBEAT_LOG_DIR="$HOME/Library/Logs/functional.technically.heartbeat"
 export HEARTBEAT_DEVICE_NAME="laptop-macOS"
 ```
 
-3. Copy `in.l1v.heatbeat.plist` to `~/Library/LaunchAgents`.
-4. Run `launchctl load ~/Library/LaunchAgents/in.l1v.heartbeat.plist`.
+3. Copy `functional.technically.heatbeat.plist` to `~/Library/LaunchAgents`.
+4. Run `launchctl load ~/Library/LaunchAgents/functional.technically.heartbeat.plist`.
 5. Ensure that the client is setup correctly
 
 To be sure your script is working and got a response from the server, run the following commands (this makes debugging easier + faster, but you could also just watch your heartbeat server's website for an update).
