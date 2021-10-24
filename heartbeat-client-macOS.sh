@@ -15,7 +15,7 @@ else
     # Check when the last HID event was sent
     LAST_INPUT_MS="$(ioreg -c IOHIDSystem | awk '/HIDIdleTime/{print $NF}')"
 
-    # Launchd will execute task if the system is locked/in sleep, so do not have to worry about the lock
+    # Launchd will not execute the task if the system is locked or sleeping, so no need to worry about the screen lock state
     if [[ $LAST_INPUT_MS -lt 120000 ]]; then
         echo "$(date +"%Y/%m/%d %T") - Running Heartbeat"
         curl -s -X POST -H "Auth: $HEARTBEAT_AUTH" -H "Device: $HEARTBEAT_DEVICE_NAME" "$HEARTBEAT_HOSTNAME/api/beat"
