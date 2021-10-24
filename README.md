@@ -23,7 +23,7 @@ Next, inside `~/.env`, add the following
 ```bash
 export HEARTBEAT_AUTH='your heartbeat server token'
 export HEARTBEAT_HOSTNAME="https://your.heartbeat.domain"
-export HEARTBEAT_LOG_FILE="$HOME/.cache/heartbeat.log"
+export HEARTBEAT_LOG_DIR="$HOME/.cache"
 export HEARTBEAT_DEVICE_NAME="Linux Device"
 ```
 
@@ -47,7 +47,7 @@ To be sure your script is working and got a response from the server, run the fo
 . ~/.env
 cd ~/.local/bin/
 ./ping.sh
-cat "$HEARTBEAT_LOG_FILE"
+cat "$HEARTBEAT_LOG_DIR/heartbeat.log"
 # The output should look somewhat like the following
 # 2021/09/23 17:28:07 - Running Heartbeat
 # 1632432488
