@@ -10,9 +10,7 @@ Do note, that checking for a screen lock only works on KDE's `kscreenlocker`. If
 
 ## Usage (for most \*NIX-like systems)
 
-1. Download the ping script (POSIX compatible)
-
-Download [`heartbeat-client-unix.sh`](https://github.com/technically-functional/heartbeat-unix/blob/master/scripts/heartbeat-client-unix.sh) anywhere you'd like, preferably like so
+1. Download the posix shell script, [`heartbeat-client-unix.sh`](https://github.com/technically-functional/heartbeat-unix/blob/master/scripts/heartbeat-client-unix.sh) anywhere you'd like, preferably like so
 ```bash
 mkdir -p ~/.local/bin/
 curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/scripts/heartbeat-client-unix.sh -o ~/.local/bin/heartbeat-client-unix.sh
@@ -61,8 +59,7 @@ cat "$HEARTBEAT_LOG_DIR/heartbeat.log"
 
 Since `xprintidle` does not have support for macOS, there is an alternative script available.
 
-1. Download the ping script (compatible with bash)
-Download [`heartbeat-client-macOS.sh`](https://github.com/technically-functional/heartbeat-unix/blob/master/scripts/heartbeat-client-macOS.sh) anywhere you'd like, preferably like so
+1. Download the bash script, [`heartbeat-client-macOS.sh`](https://github.com/technically-functional/heartbeat-unix/blob/master/scripts/heartbeat-client-macOS.sh) anywhere you'd like, preferably like so
 ```bash
 mkdir -p ~/.local/bin/
 curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/scripts/heartbeat-client-macOS.sh -o ~/.local/bin/heartbeat-client-macOS.sh
