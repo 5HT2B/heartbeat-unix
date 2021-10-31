@@ -35,8 +35,8 @@ If you are not using systemd on your system, please use the equivalent service f
 
 ```bash
 mkdir -p ~/.config/systemd/user/
-curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/scripts/heartbeat-client.service -o ~/.config/systemd/user/heartbeat-client.service
-curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/scripts/heartbeat-client.timer -o ~/.config/systemd/user/heartbeat-client.timer
+curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/services/heartbeat-client.service -o ~/.config/systemd/user/heartbeat-client.service
+curl https://raw.githubusercontent.com/technically-functional/heartbeat-unix/master/services/heartbeat-client.timer -o ~/.config/systemd/user/heartbeat-client.timer
 # Enable the service and timer for the current user
 systemctl --user enable --now heartbeat-client.timer
 ```
