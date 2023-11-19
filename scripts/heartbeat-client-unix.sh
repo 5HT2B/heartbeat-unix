@@ -17,6 +17,9 @@ if [ -z "$HEARTBEAT_AUTH" ] || [ -z "$HEARTBEAT_LOG_DIR" ] || [ -z "$HEARTBEAT_H
     echo "HEARTBEAT_SCREEN_LOCK: $HEARTBEAT_SCREEN_LOCK"
     exit 1
 else
+    if [ ! -d "$HEARTBEAT_LOG_DIR" ]; then
+        mkdir -p "$HEARTBEAT_LOG_DIR" || exit 1
+    fi
     if [ -z "$(which xprintidle)" ]; then
         echo "xprintidle not found, please install it!"
         exit 1
