@@ -2,7 +2,10 @@
 
 This is the Linux / macOS / Unix client for Heartbeat. It will ping the central server every minute, as long as an input device (keyboard or mouse) has been used in the last two minutes, and your device is unlocked.
 
-Do note, that checking for a screen lock only works on KDE's `kscreenlocker`. If you are on a different DE / screenlocker, feel free to make a pull request adding support for that DE / screenlocker.
+Currently, Wayland support is not available, since the equivalent of `xprintidle` isn't available.
+
+You can configure a screen locker that the script will use to determine if your screen is locked (it
+just `pgrep`s it, so use the appropriate name).
 
 # Jump to
 - [Usage (for most \*NIX-like systems)](#usage-for-most-nix-like-systems)
@@ -27,6 +30,7 @@ export HEARTBEAT_AUTH='your heartbeat server token'
 export HEARTBEAT_HOSTNAME="https://your.heartbeat.domain"
 export HEARTBEAT_LOG_DIR="$HOME/.cache"
 export HEARTBEAT_DEVICE_NAME="Linux Device"
+export HEARTBEAT_SCREEN_LOCK="kscreenlocker"  # or whatever screen locker you use
 ```
 
 3. Download and install the systemd service
