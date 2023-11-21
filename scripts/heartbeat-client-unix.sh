@@ -27,7 +27,7 @@ else
         exit 1
     fi
 
-    # Check if kscreenlocker is running. Only works on KDE
+    # Check if screenlocker program is running / locked (default `kscreenlocker`).
     SCREEN_LOCKED="$(pgrep "$HEARTBEAT_SCREEN_LOCK")"
     # Check when the last keyboard or mouse event was sent
     LAST_INPUT_MS="$(xprintidle)"
